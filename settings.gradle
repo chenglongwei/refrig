@@ -1,0 +1,5 @@
+rootProject.name = 'refrig'
+include 'client'
+include 'bsserver'
+include 'server'
+
