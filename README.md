@@ -1,8 +1,10 @@
-# Enterprise Distrubuted System class project: Refrig
+# Refrig: Chenglong Wei 010396464
 
 ## The System Architecture
 
 ![alt text](https://github.com/chenglongwei/refrig/blob/master/server/src/main/resources/static/system_architecture.png "System Architecture")
+
+The system is implemented by Spring Framework, built by Gradle and Deployed on Tomcat.
 
 ## Database Architecture Design
 
@@ -11,6 +13,7 @@ Use mongodb in bootstrap server, server and Client. Followings are the database 
 ### BootStrap
 
 #### BootStrap Server Storage Design
+Database name bsserver.
 ```json
 {
 	"ep": "uuid:00000000-0000-0000-000000000001" ,
@@ -24,6 +27,7 @@ Use mongodb in bootstrap server, server and Client. Followings are the database 
 }
 ```
 #### Client Storage Design
+Database name client.
 ```json
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
@@ -39,6 +43,7 @@ Use mongodb in bootstrap server, server and Client. Followings are the database 
 }
 ```
 ### Register
+Database name client.
 Both Server Side and Client Side Store like this
 ```json
 {
@@ -64,3 +69,27 @@ Both Server Side and Client Side Store like this
 	"timestamp" : 1445890741
 }
 ```
+
+## Method Definded for C.R.U.D
+
+### BootStrap Server Side
+https://github.com/chenglongwei/refrig/blob/master/bsserver/src/main/java/com/longyi/dist/bsserver/controller/BootstrapController.java
+
+### Server Side
+https://github.com/chenglongwei/refrig/blob/master/server/src/main/java/com/longyi/dist/server/controller/RegisterController.java
+
+## Demo
+### Deployment
+After gradle build, there are three war packges (client-1.0.war, bsserver-1.0.war, server-1.0.war). Deploy them on Tomcat.
+http://localhost:8080/manager/html
+### Control Client to Perform Actions
+#### Bootstrap
+http://localhost:8080/client-1.0/api/do/bs/read
+http://localhost:8080/client-1.0/api/do/bs/create
+#### Register
+http://localhost:8080/client-1.0/api/do/rd/create
+http://localhost:8080/client-1.0/api/do/rd/read
+http://localhost:8080/client-1.0/api/do/rd/update
+http://localhost:8080/client-1.0/api/do/rd/delete
+#### Send data
+http://localhost:8080/client-1.0/api/do/send
