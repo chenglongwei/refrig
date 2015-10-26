@@ -1,5 +1,5 @@
 # Refrig -- Enterprised Distributed Systems Project
-## Chenglong Wei 010396464
+### Chenglong Wei 010396464
 
 ## The System Architecture
 
@@ -11,10 +11,8 @@ The system is implemented by Spring Framework, built by Gradle and Deployed on T
 
 Use mongodb in bootstrap server, server and Client. Followings are the database architecture design 
 
-### BootStrap
-
-#### BootStrap Server Storage Design
-Database name bsserver.
+### BootStrap Server Storage Design
+Database name bsserver, collection name refrig.
 ```json
 {
 	"ep": "uuid:00000000-0000-0000-000000000001" ,
@@ -27,8 +25,8 @@ Database name bsserver.
 	}
 }
 ```
-#### Client Storage Design
-Database name client.
+#### Server
+Database name server, collection registerInfo, temperature.
 ```json
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
@@ -42,28 +40,29 @@ Database name client.
 			"rid_3" : "1.0.0"
 	}
 }
-```
-### Register
-Database name client.
-Both Server Side and Client Side Store like this
-```json
-{
-	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
-	"oid_0":{
-			"rid_0" : "localhost:8080/server-1.0/api/rd"
-	},
-	"oid_3":{
-			"rid_0" : "Samsung",
-			"rid_1" : "1234",
-			"rid_2" : "x1234",
-			"rid_3" : "1.0.0"
-	}
-}
-```
-### Data Sent
 
-Both Server Side and Client Side Store like this
+{
+	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
+	"temperatue" : 72,
+	"timestamp" : 1445890741
+}
+```
+### Client
+Database name client. Collections refrig, temperature
 ```json
+{
+	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
+	"oid_0":{
+			"rid_0" : "localhost:8080/server-1.0/api/rd"
+	},
+	"oid_3":{
+			"rid_0" : "Samsung",
+			"rid_1" : "1234",
+			"rid_2" : "x1234",
+			"rid_3" : "1.0.0"
+	}
+}
+
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
 	"temperatue" : 72,
@@ -85,6 +84,9 @@ After gradle build, there are three war packges (client-1.0.war, bsserver-1.0.wa
 [http://localhost:8080/manager/html](http://localhost:8080/manager/html)
 
 ### Control Client to Perform Actions
+[Client Controller Bootstrap](https://github.com/chenglongwei/refrig/blob/master/client/src/main/java/com/longyi/dist/client/controller/BootstrapController.java)
+[Client Controller Register](https://github.com/chenglongwei/refrig/blob/master/client/src/main/java/com/longyi/dist/client/controller/RegisterController.java)
+
 #### Bootstrap
 [http://localhost:8080/client-1.0/api/do/bs/read](http://localhost:8080/client-1.0/api/do/bs/read)
 
