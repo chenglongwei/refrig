@@ -40,7 +40,8 @@ Database name server, collection registerInfo, temperature.
 			"rid_3" : "1.0.0"
 	}
 }
-
+```
+```json
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
 	"temperatue" : 72,
@@ -62,7 +63,8 @@ Database name client. Collections refrig, temperature
 			"rid_3" : "1.0.0"
 	}
 }
-
+```
+```json
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
 	"temperatue" : 72,
