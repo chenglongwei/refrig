@@ -87,7 +87,7 @@ After gradle build, there are three war packges (client-1.0.war, bsserver-1.0.wa
 #### Bootstrap
 [http://localhost:8080/client-1.0/api/do/bs/read](http://localhost:8080/client-1.0/api/do/bs/read)
 
-[http://localhost:8080/client-1.0/api/do/bs/create](http://localhost:8080/client-1.0/api/do/bs/create)
+[http://localhost:8080/client-1.0/api/do/bs/bootstrap](http://localhost:8080/client-1.0/api/do/bs/bootstrap)
 #### Register
 [http://localhost:8080/client-1.0/api/do/rd/create](http://localhost:8080/client-1.0/api/do/rd/create)
 
