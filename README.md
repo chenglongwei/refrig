@@ -1,17 +1,17 @@
-# Refrig -- Enterprised Distributed Systems Project
+## Refrig -- Enterprised Distributed Systems Project
 ### Chenglong Wei 010396464
 
-## The System Architecture
+### The System Architecture
 
 ![alt text](https://github.com/chenglongwei/refrig/blob/master/server/src/main/resources/static/system_architecture.png "System Architecture")
 
 The system is implemented by Spring Framework, built by Gradle and Deployed on Tomcat.
 
-## Database Architecture Design
+### Database Architecture Design
 
 Use mongodb in bootstrap server, server and Client. Followings are the database architecture design 
 
-### BootStrap Server Storage Design
+#### BootStrap
 Database name bsserver, collection name refrig.
 ```json
 {
@@ -70,28 +70,29 @@ Database name client. Collections refrig, temperature
 }
 ```
 
-## Method Definded for C.R.U.D
+### Method Definded for C.R.U.D
 
-### BootStrap Server Side
+#### BootStrap Server Side
 [BootStrap Controller](https://github.com/chenglongwei/refrig/blob/master/bsserver/src/main/java/com/longyi/dist/bsserver/controller/BootstrapController.java)
 
-### Server Side
+#### Server Side
 [Server Controller](https://github.com/chenglongwei/refrig/blob/master/server/src/main/java/com/longyi/dist/server/controller/RegisterController.java)
 
-## Demo
-### Deployment
+### Demo
+#### Deployment
 After gradle build, there are three war packges (client-1.0.war, bsserver-1.0.war, server-1.0.war). Deploy them on Tomcat.
 [http://localhost:8080/manager/html](http://localhost:8080/manager/html)
 
-### Control Client to Perform Actions
+#### Control Client to Perform Actions
 [Client Controller Bootstrap](https://github.com/chenglongwei/refrig/blob/master/client/src/main/java/com/longyi/dist/client/controller/BootstrapController.java)
+
 [Client Controller Register](https://github.com/chenglongwei/refrig/blob/master/client/src/main/java/com/longyi/dist/client/controller/RegisterController.java)
 
-#### Bootstrap
+##### Bootstrap
 [http://localhost:8080/client-1.0/api/do/bs/read](http://localhost:8080/client-1.0/api/do/bs/read)
 
 [http://localhost:8080/client-1.0/api/do/bs/bootstrap](http://localhost:8080/client-1.0/api/do/bs/bootstrap)
-#### Register
+##### Register
 [http://localhost:8080/client-1.0/api/do/rd/create](http://localhost:8080/client-1.0/api/do/rd/create)
 
 [http://localhost:8080/client-1.0/api/do/rd/read](http://localhost:8080/client-1.0/api/do/rd/read)
@@ -99,5 +100,5 @@ After gradle build, there are three war packges (client-1.0.war, bsserver-1.0.wa
 [http://localhost:8080/client-1.0/api/do/rd/update?version=1.0.5](http://localhost:8080/client-1.0/api/do/rd/update?version=1.0.5)
 
 [http://localhost:8080/client-1.0/api/do/rd/delete](http://localhost:8080/client-1.0/api/do/rd/delete)
-#### Send data
+##### Send data
 [http://localhost:8080/client-1.0/api/do/send](http://localhost:8080/client-1.0/api/do/send)
