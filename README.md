@@ -86,11 +86,15 @@ After gradle build, there are three war packges (client-1.0.war, bsserver-1.0.wa
 ### Control Client to Perform Actions
 #### Bootstrap
 [http://localhost:8080/client-1.0/api/do/bs/read](http://localhost:8080/client-1.0/api/do/bs/read)
+
 [http://localhost:8080/client-1.0/api/do/bs/create](http://localhost:8080/client-1.0/api/do/bs/create)
 #### Register
 [http://localhost:8080/client-1.0/api/do/rd/create](http://localhost:8080/client-1.0/api/do/rd/create)
+
 [http://localhost:8080/client-1.0/api/do/rd/read](http://localhost:8080/client-1.0/api/do/rd/read)
+
 [http://localhost:8080/client-1.0/api/do/rd/update](http://localhost:8080/client-1.0/api/do/rd/update)
+
 [http://localhost:8080/client-1.0/api/do/rd/delete](http://localhost:8080/client-1.0/api/do/rd/delete)
 #### Send data
 [http://localhost:8080/client-1.0/api/do/send](http://localhost:8080/client-1.0/api/do/send)
