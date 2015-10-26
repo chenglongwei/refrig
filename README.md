@@ -11,7 +11,7 @@ The system is implemented by Spring Framework, built by Gradle and Deployed on T
 
 Use mongodb in bootstrap server, server and Client. Followings are the database architecture design 
 
-#### BootStrap
+#### BootStrap Sever
 Database name bsserver, collection name refrig.
 ```json
 {
