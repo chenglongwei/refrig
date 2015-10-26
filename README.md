@@ -73,23 +73,24 @@ Both Server Side and Client Side Store like this
 ## Method Definded for C.R.U.D
 
 ### BootStrap Server Side
-https://github.com/chenglongwei/refrig/blob/master/bsserver/src/main/java/com/longyi/dist/bsserver/controller/BootstrapController.java
+[BootStrap Controller](https://github.com/chenglongwei/refrig/blob/master/bsserver/src/main/java/com/longyi/dist/bsserver/controller/BootstrapController.java)
 
 ### Server Side
-https://github.com/chenglongwei/refrig/blob/master/server/src/main/java/com/longyi/dist/server/controller/RegisterController.java
+[Server Controller](https://github.com/chenglongwei/refrig/blob/master/server/src/main/java/com/longyi/dist/server/controller/RegisterController.java)
 
 ## Demo
 ### Deployment
 After gradle build, there are three war packges (client-1.0.war, bsserver-1.0.war, server-1.0.war). Deploy them on Tomcat.
-http://localhost:8080/manager/html
+[http://localhost:8080/manager/html](http://localhost:8080/manager/html)
+
 ### Control Client to Perform Actions
 #### Bootstrap
-http://localhost:8080/client-1.0/api/do/bs/read
-http://localhost:8080/client-1.0/api/do/bs/create
+[http://localhost:8080/client-1.0/api/do/bs/read](http://localhost:8080/client-1.0/api/do/bs/read)
+[http://localhost:8080/client-1.0/api/do/bs/create](http://localhost:8080/client-1.0/api/do/bs/create)
 #### Register
-http://localhost:8080/client-1.0/api/do/rd/create
-http://localhost:8080/client-1.0/api/do/rd/read
-http://localhost:8080/client-1.0/api/do/rd/update
-http://localhost:8080/client-1.0/api/do/rd/delete
+[http://localhost:8080/client-1.0/api/do/rd/create](http://localhost:8080/client-1.0/api/do/rd/create)
+[http://localhost:8080/client-1.0/api/do/rd/read](http://localhost:8080/client-1.0/api/do/rd/read)
+[http://localhost:8080/client-1.0/api/do/rd/update](http://localhost:8080/client-1.0/api/do/rd/update)
+[http://localhost:8080/client-1.0/api/do/rd/delete](http://localhost:8080/client-1.0/api/do/rd/delete)
 #### Send data
-http://localhost:8080/client-1.0/api/do/send
+[http://localhost:8080/client-1.0/api/do/send](http://localhost:8080/client-1.0/api/do/send)
