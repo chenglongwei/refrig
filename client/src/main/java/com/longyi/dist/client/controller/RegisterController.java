@@ -39,10 +39,13 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "update", method = RequestMethod.GET)
-    public Refrig update(@RequestBody Refrig refrig) {
-        if (refrig != null) {
+    public Refrig update(@RequestParam(value = "version") String version) {
+        List<Refrig> list = repository.findAll();
+        if (list != null && list.size() >= 1) {
+            Refrig refrig = list.get(0);
             repository.deleteAll();
             repository.save(refrig);
+            refrig.getOid_3().setRid_3(version);
             return HttpUtil.httpUpdateRegister(refrig.getOid_0().getRid_0(), refrig);
         }
         return null;
