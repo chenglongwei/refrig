@@ -93,7 +93,7 @@ After gradle build, there are three war packges (client-1.0.war, bsserver-1.0.wa
 
 [http://localhost:8080/client-1.0/api/do/rd/read](http://localhost:8080/client-1.0/api/do/rd/read)
 
-[http://localhost:8080/client-1.0/api/do/rd/update](http://localhost:8080/client-1.0/api/do/rd/update)
+[http://localhost:8080/client-1.0/api/do/rd/update?version=1.0.5](http://localhost:8080/client-1.0/api/do/rd/update?version=1.0.5)
 
 [http://localhost:8080/client-1.0/api/do/rd/delete](http://localhost:8080/client-1.0/api/do/rd/delete)
 #### Send data
