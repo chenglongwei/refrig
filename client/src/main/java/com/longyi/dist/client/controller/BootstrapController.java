@@ -19,7 +19,7 @@ public class BootstrapController {
     @Autowired
     private BootstrapRepository repository;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "read", method = RequestMethod.GET)
     public Refrig getRefrigInfo() {
         List<Refrig> list = repository.findAll();
         if(list != null && list.size() >= 1) {
@@ -29,7 +29,7 @@ public class BootstrapController {
         return null;
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "bootstrap", method = RequestMethod.GET)
     public Refrig bootstrap() {
         Refrig refrig =  HttpUtil.httpBootStrap(
                 "http://localhost:8080/bsserver-1.0/api/bs?ep=" + ep);

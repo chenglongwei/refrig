@@ -12,12 +12,12 @@ import java.util.List;
  * Created by chenglongwei on 10/5/15.
  */
 @RestController
-@RequestMapping("api/do/register")
+@RequestMapping("api/do/rd")
 public class RegisterController {
     @Autowired
     private BootstrapRepository repository;
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "create", method = RequestMethod.GET)
     public Refrig register() {
         List<Refrig> list = repository.findAll();
         if (list != null && list.size() >= 1) {
@@ -28,7 +28,7 @@ public class RegisterController {
         return null;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "read", method = RequestMethod.GET)
     public Refrig getRefrigInfo() {
         List<Refrig> list = repository.findAll();
         if (list != null && list.size() >= 1) {
@@ -38,7 +38,7 @@ public class RegisterController {
         return null;
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(value = "update", method = RequestMethod.GET)
     public Refrig update(@RequestBody Refrig refrig) {
         if (refrig != null) {
             repository.deleteAll();
@@ -48,7 +48,7 @@ public class RegisterController {
         return null;
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
+    @RequestMapping(value = "delete", method = RequestMethod.GET)
     public Refrig delete() {
         List<Refrig> list = repository.findAll();
         if (list != null && list.size() >= 1) {
