@@ -65,7 +65,7 @@ Both Server Side and Client Side Store like this
 ```json
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
-	"temperatue" : 72
+	"temperatue" : 72,
 	"timestamp" : 1445890741
 }
 ```
