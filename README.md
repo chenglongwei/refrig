@@ -1,4 +1,5 @@
-# Refrig: Chenglong Wei 010396464
+# Refrig -- Enterprised Distributed Systems Project
+## Chenglong Wei 010396464
 
 ## The System Architecture
 
