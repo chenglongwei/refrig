@@ -1,17 +1,17 @@
 ## Refrig -- Enterprised Distributed Systems Project
 ### Chenglong Wei 010396464
 
-### The System Architecture
+### 1. The System Architecture
 
 ![alt text](https://github.com/chenglongwei/refrig/blob/master/server/src/main/resources/static/system_architecture.png "System Architecture")
 
 The system is implemented by **Spring Framework**, built by **Gradle** and Deployed on **Tomcat**.
 
-### Database Architecture Design
+### 2. Database Architecture Design
 
 Use **Mongodb** in **Bootstrap Server**, **Server** and **Client**. Followings are the database architecture design 
 
-#### BootStrap Sever
+#### 2.1 BootStrap Sever
 Database name **bsserver**, collection name **refrig**.
 ```json
 {
@@ -25,7 +25,7 @@ Database name **bsserver**, collection name **refrig**.
 	}
 }
 ```
-#### Server
+#### 2.2 Server
 Database name **server**, collection **registerInfo**, **temperature**.
 ```json
 {
@@ -48,7 +48,7 @@ Database name **server**, collection **registerInfo**, **temperature**.
 	"timestamp" : 1445890741
 }
 ```
-### Client
+#### 2.3 Client
 Database name **client**. Collections **refrig**, **temperature**
 ```json
 {
@@ -72,29 +72,29 @@ Database name **client**. Collections **refrig**, **temperature**
 }
 ```
 
-### Method Definded for C.R.U.D
+### 3. Method Definded for C.R.U.D
 
-#### BootStrap Server Side
+#### 3.1 BootStrap Server Side
 [BootStrap Controller](https://github.com/chenglongwei/refrig/blob/master/bsserver/src/main/java/com/longyi/dist/bsserver/controller/BootstrapController.java)
 
-#### Server Side
+#### 3.2 Server Side
 [Server Controller](https://github.com/chenglongwei/refrig/blob/master/server/src/main/java/com/longyi/dist/server/controller/RegisterController.java)
 
-### Demo
-#### Deployment
+### 4. Demo
+#### 4.1 Deployment
 After gradle build, there are three war packges (**client-1.0.war**, **bsserver-1.0.war**, **server-1.0.war**). Deploy them on **Tomcat**.
 [http://localhost:8080/manager/html](http://localhost:8080/manager/html)
 
-#### Control Client to Perform Actions
+#### 4.2 Control Client to Perform Actions
 [Client Controller Bootstrap](https://github.com/chenglongwei/refrig/blob/master/client/src/main/java/com/longyi/dist/client/controller/BootstrapController.java)
 
 [Client Controller Register](https://github.com/chenglongwei/refrig/blob/master/client/src/main/java/com/longyi/dist/client/controller/RegisterController.java)
 
-##### Bootstrap
+##### 4.2.1 Bootstrap
 [http://localhost:8080/client-1.0/api/do/bs/read](http://localhost:8080/client-1.0/api/do/bs/read)
 
 [http://localhost:8080/client-1.0/api/do/bs/bootstrap](http://localhost:8080/client-1.0/api/do/bs/bootstrap)
-##### Register
+##### 4.2.2 Register
 [http://localhost:8080/client-1.0/api/do/rd/create](http://localhost:8080/client-1.0/api/do/rd/create)
 
 [http://localhost:8080/client-1.0/api/do/rd/read](http://localhost:8080/client-1.0/api/do/rd/read)
@@ -102,5 +102,5 @@ After gradle build, there are three war packges (**client-1.0.war**, **bsserver-
 [http://localhost:8080/client-1.0/api/do/rd/update?version=1.0.5](http://localhost:8080/client-1.0/api/do/rd/update?version=1.0.5)
 
 [http://localhost:8080/client-1.0/api/do/rd/delete](http://localhost:8080/client-1.0/api/do/rd/delete)
-##### Send data
+##### 4.2.3 Send data
 [http://localhost:8080/client-1.0/api/do/send](http://localhost:8080/client-1.0/api/do/send)
