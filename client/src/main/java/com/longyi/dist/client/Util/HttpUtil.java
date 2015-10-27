@@ -1,11 +1,14 @@
 package com.longyi.dist.client.Util;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.longyi.dist.client.domain.Refrig;
+import com.longyi.dist.client.domain.Temperature;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -146,6 +149,37 @@ public class HttpUtil {
             rd.close();
 
             return new Gson().fromJson(sb.toString(), Refrig.class);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static List<Temperature> httpSendData(String path, Temperature temperature) {
+        try {
+            URL url = new URL(path);
+            String postData = new Gson().toJson(temperature, Temperature.class);
+
+            byte[] postDataBytes = postData.toString().getBytes();
+
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Accept", "application/json");
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            conn.getOutputStream().write(postDataBytes);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = rd.readLine()) != null) {
+                System.out.println(line);
+                sb.append(line);
+            }
+            return new Gson().fromJson(sb.toString(), new TypeToken<List<Temperature>>() {
+            }.getType());
 
         } catch (Exception e) {
             e.printStackTrace();
