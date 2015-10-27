@@ -5,14 +5,14 @@
 
 ![alt text](https://github.com/chenglongwei/refrig/blob/master/server/src/main/resources/static/system_architecture.png "System Architecture")
 
-The system is implemented by Spring Framework, built by Gradle and Deployed on Tomcat.
+The system is implemented by **Spring Framework**, built by **Gradle** and Deployed on **Tomcat**.
 
 ### Database Architecture Design
 
-Use mongodb in bootstrap server, server and Client. Followings are the database architecture design 
+Use **Mongodb** in **Bootstrap Server**, **Server** and **Client**. Followings are the database architecture design 
 
 #### BootStrap Sever
-Database name bsserver, collection name refrig.
+Database name **bsserver**, collection name **refrig**.
 ```json
 {
 	"ep": "uuid:00000000-0000-0000-000000000001" ,
@@ -26,7 +26,7 @@ Database name bsserver, collection name refrig.
 }
 ```
 #### Server
-Database name server, collection registerInfo, temperature.
+Database name **server**, collection **registerInfo**, **temperature**.
 ```json
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
@@ -49,7 +49,7 @@ Database name server, collection registerInfo, temperature.
 }
 ```
 ### Client
-Database name client. Collections refrig, temperature
+Database name **client**. Collections **refrig**, **temperature**
 ```json
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
@@ -82,7 +82,7 @@ Database name client. Collections refrig, temperature
 
 ### Demo
 #### Deployment
-After gradle build, there are three war packges (client-1.0.war, bsserver-1.0.war, server-1.0.war). Deploy them on Tomcat.
+After gradle build, there are three war packges (**client-1.0.war**, **bsserver-1.0.war**, **server-1.0.war**). Deploy them on **Tomcat**.
 [http://localhost:8080/manager/html](http://localhost:8080/manager/html)
 
 #### Control Client to Perform Actions
