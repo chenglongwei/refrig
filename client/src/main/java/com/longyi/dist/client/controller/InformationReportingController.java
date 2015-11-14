@@ -34,7 +34,7 @@ public class InformationReportingController {
 
             Temperature temperature = new Temperature();
             temperature.setEndpointClientName(BootstrapController.ep);
-            temperature.setTemperatue(new Random().nextInt(100));
+            temperature.setTemperatrue(new Random().nextInt(100));
             temperature.setTimestamp(System.currentTimeMillis());
             if (needsNotify(temperature)) {
                 HttpUtil.httpSendData("http://localhost:8080/server-1.0/api/info/temperature", temperature);
@@ -116,7 +116,7 @@ public class InformationReportingController {
             if (obj instanceof Temperature) {
                 Attribute attribute = list.get(0).getTemperature();
                 Temperature temperature = (Temperature) obj;
-                if (!attribute.isCancel() && temperature.getTemperatue() > attribute.getGreaterThan()) {
+                if (!attribute.isCancel() && temperature.getTemperatrue() > attribute.getGreaterThan()) {
                     return true;
                 }
             } else if (obj instanceof Bacteria) {

@@ -1,6 +1,5 @@
 package com.longyi.dist.server.controller;
 
-import com.google.gson.Gson;
 import com.longyi.dist.server.domain.Bacteria;
 import com.longyi.dist.server.domain.Temperature;
 import com.longyi.dist.server.repository.BacteriaRepository;
@@ -26,9 +25,6 @@ public class InformationController {
 
     @RequestMapping(value = "temperature", method = RequestMethod.POST)
     public List<Temperature> temperature(@RequestBody Temperature temperature) {
-        //log
-        System.out.println("temperature: \n" + new Gson().toJson(temperature, Temperature.class));
-
         temperatureRepository.save(temperature);
         List<Temperature> list = temperatureRepository.findAll();
         if (list.size() <= 3) {
