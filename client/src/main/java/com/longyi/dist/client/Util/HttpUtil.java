@@ -161,7 +161,7 @@ public class HttpUtil {
         try {
             URL url = new URL(path);
             String postData = new Gson().toJson(obj, Object.class);
-            System.out.println(postData);
+            System.out.println("httpSendData\n" + postData);
 
             byte[] postDataBytes = postData.toString().getBytes();
 

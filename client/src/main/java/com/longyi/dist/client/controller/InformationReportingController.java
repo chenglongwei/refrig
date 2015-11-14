@@ -37,8 +37,7 @@ public class InformationReportingController {
             temperature.setTemperatue(new Random().nextInt(100));
             temperature.setTimestamp(System.currentTimeMillis());
             if (needsNotify(temperature)) {
-                HttpUtil.httpSendData("http://localhost:8080/server-1.0/api/temperature",
-                        temperature);
+                HttpUtil.httpSendData("http://localhost:8080/server-1.0/api/info/temperature", temperature);
             }
             temperatureRepository.save(temperature);
 
@@ -47,8 +46,7 @@ public class InformationReportingController {
             bacteria.setBacteria(new Random().nextInt(100));
             bacteria.setTimestamp(System.currentTimeMillis());
             if (needsNotify(bacteria)) {
-                HttpUtil.httpSendData("http://localhost:8080/server-1.0/api/bacteria",
-                        bacteria);
+                HttpUtil.httpSendData("http://localhost:8080/server-1.0/api/info/bacteria", bacteria);
             }
             bacteriaRepository.save(bacteria);
 
