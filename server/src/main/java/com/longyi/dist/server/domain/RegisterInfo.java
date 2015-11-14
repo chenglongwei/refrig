@@ -11,7 +11,10 @@ public class RegisterInfo {
     private String id;
     private String endpointClientName;
     private Oid_0 oid_0;
+    private Oid_2 oid_2;
     private Oid_3 oid_3;
+    private Oid_4 oid_4;
+    private Oid_5 oid_5;
 
     public String getId() {
         return id;
@@ -37,6 +40,14 @@ public class RegisterInfo {
         this.oid_0 = oid_0;
     }
 
+    public Oid_2 getOid_2() {
+        return oid_2;
+    }
+
+    public void setOid_2(Oid_2 oid_2) {
+        this.oid_2 = oid_2;
+    }
+
     public Oid_3 getOid_3() {
         return oid_3;
     }
@@ -44,9 +55,37 @@ public class RegisterInfo {
     public void setOid_3(Oid_3 oid_3) {
         this.oid_3 = oid_3;
     }
+
+    public Oid_4 getOid_4() {
+        return oid_4;
+    }
+
+    public void setOid_4(Oid_4 oid_4) {
+        this.oid_4 = oid_4;
+    }
+
+    public Oid_5 getOid_5() {
+        return oid_5;
+    }
+
+    public void setOid_5(Oid_5 oid_5) {
+        this.oid_5 = oid_5;
+    }
 }
 
 class Oid_0 {
+    private String rid_0;
+
+    public String getRid_0() {
+        return rid_0;
+    }
+
+    public void setRid_0(String rid_0) {
+        this.rid_0 = rid_0;
+    }
+}
+
+class Oid_2 {
     private String rid_0;
 
     public String getRid_0() {
@@ -94,5 +133,29 @@ class Oid_3 {
 
     public void setRid_3(String rid_3) {
         this.rid_3 = rid_3;
+    }
+}
+
+class Oid_4 {
+    private String rid_0;
+
+    public String getRid_0() {
+        return rid_0;
+    }
+
+    public void setRid_0(String rid_0) {
+        this.rid_0 = rid_0;
+    }
+}
+
+class Oid_5 {
+    private String rid_0;
+
+    public String getRid_0() {
+        return rid_0;
+    }
+
+    public void setRid_0(String rid_0) {
+        this.rid_0 = rid_0;
     }
 }
