@@ -1,5 +1,8 @@
 package com.longyi.dist.server.controller;
 
+import com.google.gson.Gson;
+import com.longyi.dist.server.Util.HttpUtil;
+import com.longyi.dist.server.domain.Attributes;
 import com.longyi.dist.server.domain.Bacteria;
 import com.longyi.dist.server.domain.Temperature;
 import com.longyi.dist.server.repository.BacteriaRepository;
@@ -18,6 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/info")
 public class InformationController {
+    public static final String CLIENT_URL_PREFIX = "http://localhost:8080/client-1.0/api/report/";
     @Autowired
     private TemperatureRepository temperatureRepository;
     @Autowired
@@ -41,5 +45,29 @@ public class InformationController {
             return list;
         }
         return list.subList(list.size() - 3, list.size());
+    }
+
+    @RequestMapping(value = "observe/4", method = RequestMethod.GET)
+    public Attributes observeTemperature() {
+        String res = HttpUtil.httpGet(CLIENT_URL_PREFIX + "observe/4");
+        return new Gson().fromJson(res, Attributes.class);
+    }
+
+    @RequestMapping(value = "observe/5", method = RequestMethod.GET)
+    public Attributes observerBacteria() {
+        String res = HttpUtil.httpGet(CLIENT_URL_PREFIX + "observe/5");
+        return new Gson().fromJson(res, Attributes.class);
+    }
+
+    @RequestMapping(value = "cancel/observe/4", method = RequestMethod.GET)
+    public Attributes cancelObserverTemperature() {
+        String res = HttpUtil.httpGet(CLIENT_URL_PREFIX + "cancel/observe/4");
+        return new Gson().fromJson(res, Attributes.class);
+    }
+
+    @RequestMapping(value = "cancel/observe/5", method = RequestMethod.GET)
+    public Attributes cancelObserverBacteria() {
+        String res = HttpUtil.httpGet(CLIENT_URL_PREFIX + "cancel/observe/5");
+        return new Gson().fromJson(res, Attributes.class);
     }
 }
