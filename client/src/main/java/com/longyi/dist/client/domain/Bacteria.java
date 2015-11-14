@@ -3,13 +3,13 @@ package com.longyi.dist.client.domain;
 import org.springframework.data.annotation.Id;
 
 /**
- * Created by chenglongwei on 10/26/15.
+ * Created by chenglongwei on 11/13/15.
  */
-public class Temperature {
+public class Bacteria {
     @Id
     private String id;
     private String endpointClientName;
-    private int temperature;
+    private int bacteria;
     private long timestamp;
 
     public String getId() {
@@ -28,12 +28,12 @@ public class Temperature {
         this.endpointClientName = endpointClientName;
     }
 
-    public int getTemperatue() {
-        return temperature;
+    public int getBacteria() {
+        return bacteria;
     }
 
-    public void setTemperatue(int temperature) {
-        this.temperature = temperature;
+    public void setBacteria(int bacteria) {
+        this.bacteria = bacteria;
     }
 
     public long getTimestamp() {

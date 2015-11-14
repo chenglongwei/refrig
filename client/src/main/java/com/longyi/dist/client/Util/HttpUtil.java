@@ -1,6 +1,7 @@
 package com.longyi.dist.client.Util;
 
 import com.google.gson.Gson;
+import com.google.gson.internal.ObjectConstructor;
 import com.google.gson.reflect.TypeToken;
 import com.longyi.dist.client.domain.Refrig;
 import com.longyi.dist.client.domain.Temperature;
@@ -156,10 +157,11 @@ public class HttpUtil {
         }
     }
 
-    public static List<Temperature> httpSendData(String path, Temperature temperature) {
+    public static List<Object> httpSendData(String path, Object obj) {
         try {
             URL url = new URL(path);
-            String postData = new Gson().toJson(temperature, Temperature.class);
+            String postData = new Gson().toJson(obj, Object.class);
+            System.out.println(postData);
 
             byte[] postDataBytes = postData.toString().getBytes();
 
@@ -178,7 +180,7 @@ public class HttpUtil {
                 System.out.println(line);
                 sb.append(line);
             }
-            return new Gson().fromJson(sb.toString(), new TypeToken<List<Temperature>>() {
+            return new Gson().fromJson(sb.toString(), new TypeToken<List<Object>>() {
             }.getType());
 
         } catch (Exception e) {
