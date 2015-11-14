@@ -28,11 +28,11 @@ public class Temperature {
         this.endpointClientName = endpointClientName;
     }
 
-    public int getTemperatrue() {
+    public int getTemperature() {
         return temperature;
     }
 
-    public void setTemperatrue(int temperature) {
+    public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
 

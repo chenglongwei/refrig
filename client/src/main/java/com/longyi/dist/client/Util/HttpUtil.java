@@ -1,10 +1,8 @@
 package com.longyi.dist.client.Util;
 
 import com.google.gson.Gson;
-import com.google.gson.internal.ObjectConstructor;
 import com.google.gson.reflect.TypeToken;
 import com.longyi.dist.client.domain.Refrig;
-import com.longyi.dist.client.domain.Temperature;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -126,6 +124,8 @@ public class HttpUtil {
                 System.out.println(line);
                 sb.append(line);
             }
+
+            rd.close();
             return new Gson().fromJson(sb.toString(), Refrig.class);
 
         } catch (Exception e) {
@@ -160,7 +160,7 @@ public class HttpUtil {
     public static List<Object> httpSendData(String path, Object obj) {
         try {
             URL url = new URL(path);
-            String postData = new Gson().toJson(obj, Object.class);
+            String postData = new Gson().toJson(obj, obj.getClass());
             System.out.println("httpSendData\n" + postData);
 
             byte[] postDataBytes = postData.toString().getBytes();
