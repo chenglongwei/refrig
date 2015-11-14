@@ -21,49 +21,114 @@ Database name **bsserver**, collection name **refrig**.
 		"reguri" : "http://localhost:8080/server-1.0/api/rd",
 		"firmwareVersion" : "1.0.0",
 		"modelNumber" : "1234",
-		"serialNumber" : "x1234"
+		"serialNumber" : "x1234",
+		"accessOwner":"chenglong",
+        "temperature":"temperature",
+        "bacteria":"bacteria"
 	}
 }
 ```
-#### 2.2 Server
-Database name **server**, collection **registerInfo**, **temperature**.
+
+#### 2.2 Client
+Database name **client**. Collections **refrig**, **temperature**, **bacteria**, **command**, ****attributes****
+#### 2.2.1 refrig
+
 ```json
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
 	"oid_0":{
 			"rid_0" : "localhost:8080/server-1.0/api/rd"
 	},
+	"oid_2":{
+    		"rid_0" : "chenglong"(access control owner)
+    },
 	"oid_3":{
 			"rid_0" : "Samsung",
 			"rid_1" : "1234",
 			"rid_2" : "x1234",
 			"rid_3" : "1.0.0"
-	}
+	},
+	"oid_4": {
+    		"rid_0":"temperature"
+    }
+    "oid_5": {
+    		"rid_0":"bacteria"
+    }
 }
 ```
+#### 2.2.2 temperature
+
 ```json
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
-	"temperatue" : 72,
+	"temperatue" : 42,
 	"timestamp" : 1445890741
 }
 ```
-#### 2.3 Client
-Database name **client**. Collections **refrig**, **temperature**
+#### 2.2.3 bacteria
+
+```json
+{
+    "endpointClientName" : "uuid:00000000-0000-0000-000000000001",
+    "bacteria" : 32,
+    "timestamp" : 1445890741
+}
+```
+
+#### 2.2.4 command
+
+```json
+{
+  "temperature": "20",
+  "bacteria": "30"
+}
+```
+#### 2.2.5 attributes
+
+```json
+{
+	"temperature": {
+    	"minimumPeriod" : "5",
+		"maximumPeriod" : "10",
+		"greaterThan" : "40",
+		"cancel": true
+    },
+	"bacteria" : {
+		"minimumPeriod" : "5",
+        "maximumPeriod" : "10",
+        "greaterThan" : "40",
+        "cancel": true
+ 	}	
+}
+```
+
+#### 2.3 Server
+Database name **server**, collection **registerInfo**, **temperature**, **bacteria**.
+##### 2.3.1 registerInfo
 ```json
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
 	"oid_0":{
 			"rid_0" : "localhost:8080/server-1.0/api/rd"
 	},
+	"oid_2":{
+    		"rid_0" : "chenglong"(access control owner)
+    },
 	"oid_3":{
 			"rid_0" : "Samsung",
 			"rid_1" : "1234",
 			"rid_2" : "x1234",
 			"rid_3" : "1.0.0"
-	}
+	},
+	"oid_4": {
+    		"rid_0":"temperature"
+    }
+    "oid_5": {
+    		"rid_0":"bacteria"
+    }
 }
 ```
+##### 2.3.2 temperature
 ```json
 {
 	"endpointClientName" : "uuid:00000000-0000-0000-000000000001",
@@ -72,7 +137,16 @@ Database name **client**. Collections **refrig**, **temperature**
 }
 ```
 
-### 3. Method Definded for C.R.U.D
+##### 2.3.3 bacteria
+```json
+{
+    "endpointClientName" : "uuid:00000000-0000-0000-000000000001",
+    "bacteria" : 42,
+    "timestamp" : 1445890741
+}
+```
+
+### 3. Method Definded for C.R.U.D and Device Management
 
 #### 3.1 BootStrap Server Side
 [BootStrap Controller](https://github.com/chenglongwei/refrig/blob/master/bsserver/src/main/java/com/longyi/dist/bsserver/controller/BootstrapController.java)
@@ -80,21 +154,28 @@ Database name **client**. Collections **refrig**, **temperature**
 #### 3.2 Server Side
 [Server Controller](https://github.com/chenglongwei/refrig/blob/master/server/src/main/java/com/longyi/dist/server/controller/RegisterController.java)
 
+#### 3.3 Device Management
+[Device Management Controller](https://github.com/chenglongwei/refrig/blob/master/client/src/main/java/com/longyi/dist/client/controller/DeviceManagementController.java)
+
+#### 3.4 Information Reporting
+[Information Reporting Controller](https://github.com/chenglongwei/refrig/blob/master/client/src/main/java/com/longyi/dist/client/controller/InformationReportingController.java)
+
 ### 4. Demo
 #### 4.1 Deployment
 After gradle build, there are three war packges (**client-1.0.war**, **bsserver-1.0.war**, **server-1.0.war**). Deploy them on **Tomcat**.
 [http://localhost:8080/manager/html](http://localhost:8080/manager/html)
 
-#### 4.2 Control Client to Perform Actions
+#### 4.2 Bootstrap and Register (C.R.U.D)
+##### 4.2.1 Control Client to Perform Actions
 [Client Controller Bootstrap](https://github.com/chenglongwei/refrig/blob/master/client/src/main/java/com/longyi/dist/client/controller/BootstrapController.java)
 
 [Client Controller Register](https://github.com/chenglongwei/refrig/blob/master/client/src/main/java/com/longyi/dist/client/controller/RegisterController.java)
 
-##### 4.2.1 Bootstrap
+##### 4.2.2 Bootstrap
 [http://localhost:8080/client-1.0/api/do/bs/read](http://localhost:8080/client-1.0/api/do/bs/read)
 
 [http://localhost:8080/client-1.0/api/do/bs/bootstrap](http://localhost:8080/client-1.0/api/do/bs/bootstrap)
-##### 4.2.2 Register
+##### 4.2.3 Register
 [http://localhost:8080/client-1.0/api/do/rd/create](http://localhost:8080/client-1.0/api/do/rd/create)
 
 [http://localhost:8080/client-1.0/api/do/rd/read](http://localhost:8080/client-1.0/api/do/rd/read)
@@ -102,5 +183,73 @@ After gradle build, there are three war packges (**client-1.0.war**, **bsserver-
 [http://localhost:8080/client-1.0/api/do/rd/update?version=1.0.5](http://localhost:8080/client-1.0/api/do/rd/update?version=1.0.5)
 
 [http://localhost:8080/client-1.0/api/do/rd/delete](http://localhost:8080/client-1.0/api/do/rd/delete)
-##### 4.2.3 Send data
-[http://localhost:8080/client-1.0/api/do/send](http://localhost:8080/client-1.0/api/do/send)
+
+#### 4.3 Device Management and Information Reporting
+
+##### 4.3.1 Control Server to Perform Actions
+[Server Controller Do Device Management](https://github.com/chenglongwei/refrig/blob/develop/server/src/main/java/com/longyi/dist/server/controller/DeviceManagementController.java)
+[Server Controller Information Reporting](https://github.com/chenglongwei/refrig/blob/develop/server/src/main/java/com/longyi/dist/server/controller/InformationController.java)
+
+##### 4.3.2 Device Management
+
+Read temperature
+
+[http://localhost:8080/server-1.0/api/do/dm/read/4/0](http://localhost:8080/server-1.0/api/do/dm/read/4/0)
+
+
+Read bacteria
+
+[http://localhost:8080/server-1.0/api/do/dm/read/4/0](http://localhost:8080/server-1.0/api/do/dm/read/5/0)
+
+Discover object 3
+
+[http://localhost:8080/server-1.0/api/do/dm/discover/3](http://localhost:8080/server-1.0/api/do/dm/discover/3)
+
+Write object 3 resource 3
+
+[http://localhost:8080/server-1.0/api/do/dm/write/3/3?newValue=1.2.4](http://localhost:8080/server-1.0/api/do/dm/write/3/3?newValue=1.2.4)
+
+Write attributes 4 (temperature)
+
+[http://localhost:8080/server-1.0/api/do/dm/write/attributes/4?minimumPeriod=5&maximumPeriod=10&greaterThan=40&cancel=false]
+(http://localhost:8080/server-1.0/api/do/dm/write/attributes/4?minimumPeriod=5&maximumPeriod=10&greaterThan=40&cancel=false)
+
+Write attributes 5 (bacteria)
+
+[http://localhost:8080/server-1.0/api/do/dm/write/attributes/4?minimumPeriod=5&maximumPeriod=10&greaterThan=20&cancel=false]
+(http://localhost:8080/server-1.0/api/do/dm/write/attributes/4?minimumPeriod=5&maximumPeriod=10&greaterThan=20&cancel=false)
+
+Execute Command 4 (set temperature)
+[http://localhost:8080/server-1.0/api/do/dm/execute/command/4?newValue=40](http://localhost:8080/server-1.0/api/do/dm/execute/command/4?newValue=40)
+
+Execute Command 5 (set bacteria)
+
+[http://localhost:8080/server-1.0/api/do/dm/execute/command/5?newValue=20](http://localhost:8080/server-1.0/api/do/dm/execute/command/5?newValue=20)
+
+Create (access control owner)
+
+[http://localhost:8080/server-1.0/api/do/dm/create/2/0?newValue=chenglong](http://localhost:8080/server-1.0/api/do/dm/create/2/0?newValue=chenglong)
+
+Delete (access control owner)
+
+[http://localhost:8080/server-1.0/api/do/dm/delete/2/0](http://localhost:8080/server-1.0/api/do/dm/delete/2/0)
+
+##### 4.3.3 Information Reporting
+
+Observation Temperature
+
+[http://localhost:8080/server-1.0/api/info/observe/4](http://localhost:8080/server-1.0/api/info/observe/4)
+
+Observation Bacteria
+
+[http://localhost:8080/server-1.0/api/info/observe/5](http://localhost:8080/server-1.0/api/info/observe/5)
+
+
+Cancel Observation Temperature
+
+[http://localhost:8080/server-1.0/api/info/cancel/observe/4](http://localhost:8080/server-1.0/api/info/cancel/observe/4)
+
+Cancel Observation Bacteria
+
+[http://localhost:8080/server-1.0/api/cancel/observe/5](http://localhost:8080/server-1.0/api/info/cancel/observe/5)
+
