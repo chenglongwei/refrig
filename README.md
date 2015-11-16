@@ -40,7 +40,7 @@ Database name **client**. Collections **refrig**, **temperature**, **bacteria**,
 			"rid_0" : "localhost:8080/server-1.0/api/rd"
 	},
 	"oid_2":{
-    		"rid_0" : "chenglong"(access control owner)
+    		"rid_0" : "chenglong(access control owner)"
     },
 	"oid_3":{
 			"rid_0" : "Samsung",
@@ -112,7 +112,7 @@ Database name **server**, collection **registerInfo**, **temperature**, **bacter
 			"rid_0" : "localhost:8080/server-1.0/api/rd"
 	},
 	"oid_2":{
-    		"rid_0" : "chenglong"(access control owner)
+    		"rid_0" : "chenglong(access control owner)"
     },
 	"oid_3":{
 			"rid_0" : "Samsung",
@@ -188,6 +188,7 @@ After gradle build, there are three war packges (**client-1.0.war**, **bsserver-
 
 ##### 4.3.1 Control Server to Perform Actions
 [Server Controller Do Device Management](https://github.com/chenglongwei/refrig/blob/develop/server/src/main/java/com/longyi/dist/server/controller/DeviceManagementController.java)
+
 [Server Controller Information Reporting](https://github.com/chenglongwei/refrig/blob/develop/server/src/main/java/com/longyi/dist/server/controller/InformationController.java)
 
 ##### 4.3.2 Device Management
