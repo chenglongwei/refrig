@@ -193,64 +193,66 @@ After gradle build, there are three war packges (**client-1.0.war**, **bsserver-
 
 ##### 4.3.2 Device Management
 
-Read temperature
+**OP1:** Read temperature
 
 [http://localhost:8080/server-1.0/api/do/dm/read/4/0](http://localhost:8080/server-1.0/api/do/dm/read/4/0)
 
-
-Read bacteria
+**OP1:** Read bacteria
 
 [http://localhost:8080/server-1.0/api/do/dm/read/4/0](http://localhost:8080/server-1.0/api/do/dm/read/5/0)
 
-Discover object 3
+**OP2:** Discover object 3
 
 [http://localhost:8080/server-1.0/api/do/dm/discover/3](http://localhost:8080/server-1.0/api/do/dm/discover/3)
 
-Write object 3 resource 3
+**OP3:** Write object 3 resource 3
 
 [http://localhost:8080/server-1.0/api/do/dm/write/3/3?newValue=1.2.4](http://localhost:8080/server-1.0/api/do/dm/write/3/3?newValue=1.2.4)
 
-Write attributes 4 (temperature)
+**OP4:** Write attributes 4 (temperature)
 
 [http://localhost:8080/server-1.0/api/do/dm/write/attributes/4?minimumPeriod=5&maximumPeriod=10&greaterThan=40&cancel=false]
 (http://localhost:8080/server-1.0/api/do/dm/write/attributes/4?minimumPeriod=5&maximumPeriod=10&greaterThan=40&cancel=false)
 
-Write attributes 5 (bacteria)
+**OP4:** Write attributes 5 (bacteria)
 
 [http://localhost:8080/server-1.0/api/do/dm/write/attributes/4?minimumPeriod=5&maximumPeriod=10&greaterThan=20&cancel=false]
 (http://localhost:8080/server-1.0/api/do/dm/write/attributes/4?minimumPeriod=5&maximumPeriod=10&greaterThan=20&cancel=false)
 
-Execute Command 4 (set temperature)
+**OP5:** Execute Command 4 (set temperature)
 [http://localhost:8080/server-1.0/api/do/dm/execute/command/4?newValue=40](http://localhost:8080/server-1.0/api/do/dm/execute/command/4?newValue=40)
 
-Execute Command 5 (set bacteria)
+**OP5:** Execute Command 5 (set bacteria)
 
 [http://localhost:8080/server-1.0/api/do/dm/execute/command/5?newValue=20](http://localhost:8080/server-1.0/api/do/dm/execute/command/5?newValue=20)
 
-Create (access control owner)
+**OP6:** Create (access control owner)
 
 [http://localhost:8080/server-1.0/api/do/dm/create/2/0?newValue=chenglong](http://localhost:8080/server-1.0/api/do/dm/create/2/0?newValue=chenglong)
 
-Delete (access control owner)
+**OP7:** Delete (access control owner)
 
 [http://localhost:8080/server-1.0/api/do/dm/delete/2/0](http://localhost:8080/server-1.0/api/do/dm/delete/2/0)
 
 ##### 4.3.3 Information Reporting
 
-Observation Temperature
+**OP8:** Observation Temperature
 
 [http://localhost:8080/server-1.0/api/info/observe/4](http://localhost:8080/server-1.0/api/info/observe/4)
 
-Observation Bacteria
+**OP8:** Observation Bacteria
 
 [http://localhost:8080/server-1.0/api/info/observe/5](http://localhost:8080/server-1.0/api/info/observe/5)
 
 
-Cancel Observation Temperature
+**OP9:** Cancel Observation Temperature
 
 [http://localhost:8080/server-1.0/api/info/cancel/observe/4](http://localhost:8080/server-1.0/api/info/cancel/observe/4)
 
-Cancel Observation Bacteria
+**OP9:** Cancel Observation Bacteria
 
-[http://localhost:8080/server-1.0/api/cancel/observe/5](http://localhost:8080/server-1.0/api/info/cancel/observe/5)
+[http://localhost:8080/server-1.0/api/info/cancel/observe/5](http://localhost:8080/server-1.0/api/info/cancel/observe/5)
+
+**OP10:** Notification
+[http://localhost:8080/client-1.0/api/report/start](http://localhost:8080/client-1.0/api/report/start)
 
