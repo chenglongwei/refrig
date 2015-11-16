@@ -50,7 +50,7 @@ Database name **client**. Collections **refrig**, **temperature**, **bacteria**,
 	},
 	"oid_4": {
     		"rid_0":"temperature"
-    }
+    },
     "oid_5": {
     		"rid_0":"bacteria"
     }
@@ -122,7 +122,7 @@ Database name **server**, collection **registerInfo**, **temperature**, **bacter
 	},
 	"oid_4": {
     		"rid_0":"temperature"
-    }
+    },
     "oid_5": {
     		"rid_0":"bacteria"
     }
@@ -220,6 +220,7 @@ After gradle build, there are three war packges (**client-1.0.war**, **bsserver-
 (http://localhost:8080/server-1.0/api/do/dm/write/attributes/4?minimumPeriod=5&maximumPeriod=10&greaterThan=20&cancel=false)
 
 **OP5:** Execute Command 4 (set temperature)
+
 [http://localhost:8080/server-1.0/api/do/dm/execute/command/4?newValue=40](http://localhost:8080/server-1.0/api/do/dm/execute/command/4?newValue=40)
 
 **OP5:** Execute Command 5 (set bacteria)
@@ -254,5 +255,6 @@ After gradle build, there are three war packges (**client-1.0.war**, **bsserver-
 [http://localhost:8080/server-1.0/api/info/cancel/observe/5](http://localhost:8080/server-1.0/api/info/cancel/observe/5)
 
 **OP10:** Notification
+
 [http://localhost:8080/client-1.0/api/report/start](http://localhost:8080/client-1.0/api/report/start)
 

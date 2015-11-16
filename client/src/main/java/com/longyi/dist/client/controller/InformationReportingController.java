@@ -103,7 +103,7 @@ public class InformationReportingController {
         List<Attributes> list = attributesRepository.findAll();
         if (list != null && list.size() >= 1) {
             Attributes attributes = list.get(0);
-            attributes.getTemperature().setCancel(true);
+            attributes.getBacteria().setCancel(true);
             return attributesRepository.save(attributes);
         }
 
