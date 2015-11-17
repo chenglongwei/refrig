@@ -199,7 +199,7 @@ After gradle build, there are three war packges (**client-1.0.war**, **bsserver-
 
 **OP1:** Read bacteria
 
-[http://localhost:8080/server-1.0/api/do/dm/read/4/0](http://localhost:8080/server-1.0/api/do/dm/read/5/0)
+[http://localhost:8080/server-1.0/api/do/dm/read/5/0](http://localhost:8080/server-1.0/api/do/dm/read/5/0)
 
 **OP2:** Discover object 3
 
