@@ -258,3 +258,16 @@ After gradle build, there are three war packges (**client-1.0.war**, **bsserver-
 
 [http://localhost:8080/client-1.0/api/report/start](http://localhost:8080/client-1.0/api/report/start)
 
+#### 4.4 Team Project Demo
+
+** Read Temperature **
+
+[http://localhost:8080/server-1.0/api/do/dm/read/4/0](http://localhost:8080/server-1.0/api/do/dm/read/4/0)
+
+** Set Temperature **
+
+[http://localhost:8080/server-1.0/api/do/dm/execute/command/4?newValue=40](http://localhost:8080/server-1.0/api/do/dm/execute/command/4?newValue=40)
+
+** Notificate High Temperature **
+
+[http://localhost:8080/client-1.0/api/report/start](http://localhost:8080/client-1.0/api/report/start)
